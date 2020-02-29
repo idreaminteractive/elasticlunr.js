@@ -1,7 +1,7 @@
 {
-  "name": "elasticlunr",
+  "name": "elasticlunr-idream",
   "description": "Lightweight full-text search engine in Javascript for browser search and offline search.",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "author": "Wei Song",
   "keywords": [
     "search",
@@ -9,13 +9,12 @@
     "offline search",
     "full text search"
   ],
-  "homepage": "http://weixsong.github.io",
-  "bugs": "https://github.com/weixsong/elasticlunr.js/issues",
-  "main": "lib/elasticlunr.js",
+  "homepage": "https://github.com/idreaminteractive/elasticlunr.js",
+  "main": "dist/elasticlunr.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/weixsong/elasticlunr.js"
+    "url": "https://github.com/idreaminteractive/elasticlunr.js"
   },
   "nyc": {
     "require": [
@@ -76,11 +75,22 @@
     "webpack": "^4.12.2",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.0.8",
-    "yargs": "^10.0.3"
+    "yargs": "^10.0.3",
+    "rollup": "^1.27.3",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-size": "^0.2.1",
+    "rollup-plugin-size-snapshot": "^0.10.0",
+    "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-uglify": "^6.0.4"
   },
   "scripts": {
     "test": "cross-env NODE_ENV=test nyc mocha -R spec",
-    "build": "cross-env NODE_ENV=production webpack --mode production --env production -p"
+    "build": "cross-env NODE_ENV=production webpack --mode production --env production -p",
+    "build:dev": "cross-env NODE_ENV=development webpack --mode development --env development -p",
+    "build:rollup": "cross-env NODE_ENV=production rollup -c"
   },
   "dependencies": {
     "depromisify": "^1.0.0"
